@@ -1,10 +1,11 @@
+
 public class MiRadio implements Radio
 {
 	/***atributos***/
 	private boolean encendido;
 	private boolean guardar;
 	private float [] botones= new float[12];
-	private String frecuencia;
+	private boolean frecuencia;
 	private float estacion;
 	private int boton;
 	
@@ -27,10 +28,10 @@ public class MiRadio implements Radio
 	public void setBotones(float[] botones) {
 		this.botones = botones;
 	}
-	public String getFrecuencia() {
+	public boolean getFrecuencia() {
 		return frecuencia;
 	}
-	public void setFrecuencia(String frecuencia) {
+	public void setFrecuencia(boolean frecuencia) {
 		this.frecuencia = frecuencia;
 	}
 	public float getEstacion() {
@@ -46,38 +47,6 @@ public class MiRadio implements Radio
 		this.boton = boton;
 	}
 	//otros
-	/*public void cambiar(String frec)
-	{
-		setFrecuencia(frec);
-	}
-	
-	public float avanzar()
-	{
-		if (frecuencia.equals("AM"))
-		{
-			if(estacion<1610)
-			{
-				estacion= estacion+10;
-			}
-			else
-			{
-				estacion=530;
-			}
-		}
-		if(frecuencia.equals("FM"))
-		{
-			if(estacion<107.9)
-			{
-				estacion= estacion+0.2f;
-			}
-			else
-			{
-				estacion=87.9f;
-			}
-		}
-		return estacion;
-	}*/
-	
 	public void guardar(int boton, float estacion)
 	{
 		botones[boton]= estacion;
@@ -104,6 +73,14 @@ public class MiRadio implements Radio
 	@Override
 	public void AM_FM() {
 		// TODO Auto-generated method stub
+		if (frecuencia==true)
+		{
+			setFrecuencia(false);
+		}
+		else
+		{
+			setFrecuencia(true);
+		}
 		
 	}
 	@Override
@@ -113,7 +90,7 @@ public class MiRadio implements Radio
 			boolean F= getFrecuencia();
 		}
 		
-		if (frecuencia.equals("AM"))
+		if (frecuencia==true)
 		{
 			if(estacion<1610)
 			{
@@ -124,7 +101,7 @@ public class MiRadio implements Radio
 				estacion=530;
 			}
 		}
-		if(frecuencia.equals("FM"))
+		if(frecuencia==false)
 		{
 			if(estacion<107.9)
 			{

@@ -19,6 +19,35 @@ public class GUIradio extends JFrame {
 	private JPanel contentPane;
 	private Radio radio= new MiRadio();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private boolean on= false;
+	private boolean am= true;
+	private boolean gs=false;
+	
+	public boolean getOn()
+	{
+		return on;
+	}
+	public void setOn(boolean o)
+	{
+		on= o;
+	}
+	public boolean getAm()
+	{
+		return am;
+	}
+	public void setAm(boolean o)
+	{
+		am= o;
+	}
+
+	public boolean getGs()
+	{
+		return gs;
+	}
+	public void setGs(boolean o)
+	{
+		gs= o;
+	}
 
 	/**
 	 * Launch the application.
@@ -51,6 +80,17 @@ public class GUIradio extends JFrame {
 		btnOn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				radio.ON_OFF();
+				boolean t= getOn();
+				if (t==true)
+				{
+					btnOn.setText("OFF");
+					setOn(false);
+				}
+				else
+				{
+					btnOn.setText("ON");
+					setOn(true);
+				}
 			}
 		});
 		btnOn.setBounds(170, 11, 78, 23);
@@ -212,6 +252,17 @@ public class GUIradio extends JFrame {
 		button_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				radio.AM_FM();
+				boolean t= getAm();
+				if (t==true)
+				{
+					button_14.setText("FM");
+					setAm(false);
+				}
+				else
+				{
+					button_14.setText("AM");
+					setAm(true);
+				}
 			}
 		});
 		button_14.setBounds(170, 45, 78, 23);
@@ -221,6 +272,17 @@ public class GUIradio extends JFrame {
 		btnGuardarseleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				radio.Guardar_seleccion();
+				boolean t= getGs();
+				if (t==true)
+				{
+					btnGuardarseleccionar.setText("guardar");
+					setGs(false);
+				}
+				else
+				{
+					btnGuardarseleccionar.setText("seleccionar");
+					setGs(true);
+				}
 			}
 		});
 		btnGuardarseleccionar.setBounds(127, 129, 155, 23);

@@ -2,11 +2,11 @@
 public class MiRadio implements Radio
 {
 	/***atributos***/
-	private boolean encendido;
-	private boolean guardar;
+	private boolean encendido = false;
+	private boolean guardar = true;
 	private float [] botones= new float[12];
-	private boolean frecuencia;
-	private float estacion;
+	private boolean frecuencia = true;
+	private float estacion=530f;
 	private int boton;
 	
 	/***métodos***/
@@ -74,7 +74,7 @@ public class MiRadio implements Radio
 		
 	}
 	@Override
-	public void Cambio_de_Estacion() {
+	public float Cambio_de_Estacion() {
 		// TODO Auto-generated method stub
 		{
 			boolean F= getFrecuencia();
@@ -82,48 +82,59 @@ public class MiRadio implements Radio
 		
 		if (frecuencia==true)
 		{
+			if (estacion%10!=0)
+			{
+				estacion=530f;
+			}
+		
 			if(estacion<1610)
 			{
-				estacion= estacion+10;
+				estacion= estacion+10f;
 			}
 			else
 			{
-				estacion=530;
+				estacion=530f;
 			}
 		}
 		if(frecuencia==false)
 		{
+			if(estacion%10==0)
+			{
+				estacion= 87.90f;
+			}
+			
 			if(estacion<107.9)
 			{
-				estacion= estacion+0.2f;
+				estacion= estacion+0.20f;
 			}
 			else
 			{
-				estacion=87.9f;
+				estacion=87.90f;
 			}
 		}
+		setEstacion(estacion);
+		return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
-	public void Guardar_Estacion() {
+	public void Guardar_Estacion(int bot) {
 		// TODO Auto-generated method stub
 		if (guardar == true)
 		{
 			float est= getEstacion();
-			int bot= getBoton();
 			botones[bot]= est;
 		}
 		
 		
 	}
 	@Override
-	public void Seleccionar_estacion_guardada() {
+	public float Seleccionar_estacion_guardada(int bot) {
 		// TODO Auto-generated method stub
 		if (guardar==false)
 		{
-			int bot= getBoton();
 			float est= botones[bot];
 			setEstacion(est);
 		}
+		return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
 	public void Guardar_seleccion() {

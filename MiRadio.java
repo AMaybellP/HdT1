@@ -62,19 +62,23 @@ public class MiRadio implements Radio
 	}
 	@Override
 	public void AM_FM() {
-		// TODO Auto-generated method stub
-		if (frecuencia==true)
+		if (encendido==true)
 		{
-			setFrecuencia(false);
-		}
-		else
-		{
-			setFrecuencia(true);
+			// TODO Auto-generated method stub
+			if (frecuencia==true)
+			{
+				setFrecuencia(false);
+			}
+			else
+			{
+				setFrecuencia(true);
+			}
 		}
 		
 	}
 	@Override
 	public float Cambio_de_Estacion() {
+		if (encendido==true){
 		// TODO Auto-generated method stub
 		{
 			boolean F= getFrecuencia();
@@ -113,31 +117,33 @@ public class MiRadio implements Radio
 			}
 		}
 		setEstacion(estacion);
+		}
 		return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
 	public void Guardar_Estacion(int bot) {
+		if (encendido==true){
 		// TODO Auto-generated method stub
 		if (guardar == true)
 		{
 			float est= getEstacion();
 			botones[bot]= est;
-		}
-		
-		
+		}}
 	}
 	@Override
 	public float Seleccionar_estacion_guardada(int bot) {
+		if (encendido==true){
 		// TODO Auto-generated method stub
 		if (guardar==false)
 		{
 			float est= botones[bot];
 			setEstacion(est);
-		}
+		}}
 		return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
 	public void Guardar_seleccion() {
+		if (encendido==true){
 		// TODO Auto-generated method stub
 		if (guardar== true)
 		{
@@ -146,6 +152,6 @@ public class MiRadio implements Radio
 		else
 		{
 			guardar= true;
-		}
+		}}
 	}
 }

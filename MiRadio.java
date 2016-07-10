@@ -47,16 +47,6 @@ public class MiRadio implements Radio
 		this.boton = boton;
 	}
 	//otros
-	public void guardar(int boton, float estacion)
-	{
-		botones[boton]= estacion;
-	}
-	
-	public float seleccionar(int boton)
-	{
-		estacion= botones[boton];
-		return estacion;
-	}
 	@Override
 	public void ON_OFF() {
 		// TODO Auto-generated method stub

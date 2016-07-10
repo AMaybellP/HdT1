@@ -1,13 +1,14 @@
-
 public class MiRadio implements Radio
 {
 	/***atributos***/
 	private boolean encendido;
+	private boolean guardar;
 	private float [] botones= new float[12];
 	private String frecuencia;
-	/*private*/ float estacion;
+	private float estacion;
+	private int boton;
 	
-	/***métodos***/
+	/***mÃ©todos***/
 	//constructor
 	public MiRadio()
 	{
@@ -38,16 +39,14 @@ public class MiRadio implements Radio
 	public void setEstacion(float estacion) {
 		this.estacion = estacion;
 	}
+	public int getBoton() {
+		return boton;
+	}
+	public void setBoton(int boton) {
+		this.boton = boton;
+	}
 	//otros
-	public void encender()
-	{
-		setEncendido(true);
-	}
-	public void apagar()
-	{
-		setEncendido(false);
-	}
-	public void cambiar(String frec)
+	/*public void cambiar(String frec)
 	{
 		setFrecuencia(frec);
 	}
@@ -77,7 +76,7 @@ public class MiRadio implements Radio
 			}
 		}
 		return estacion;
-	}
+	}*/
 	
 	public void guardar(int boton, float estacion)
 	{
@@ -88,5 +87,87 @@ public class MiRadio implements Radio
 	{
 		estacion= botones[boton];
 		return estacion;
+	}
+	@Override
+	public void ON_OFF() {
+		// TODO Auto-generated method stub
+		boolean en= getEncendido(); 
+		if (en==true)
+		{
+			setEncendido(false);
+		}
+		else
+		{
+			setEncendido(true);
+		}	
+	}
+	@Override
+	public void AM_FM() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Cambio_de_Estacion() {
+		// TODO Auto-generated method stub
+		{
+			boolean F= getFrecuencia();
+		}
+		
+		if (frecuencia.equals("AM"))
+		{
+			if(estacion<1610)
+			{
+				estacion= estacion+10;
+			}
+			else
+			{
+				estacion=530;
+			}
+		}
+		if(frecuencia.equals("FM"))
+		{
+			if(estacion<107.9)
+			{
+				estacion= estacion+0.2f;
+			}
+			else
+			{
+				estacion=87.9f;
+			}
+		}
+	}
+	@Override
+	public void Guardar_Estacion() {
+		// TODO Auto-generated method stub
+		if (guardar == true)
+		{
+			float est= getEstacion();
+			int bot= getBoton();
+			botones[bot]= est;
+		}
+		
+		
+	}
+	@Override
+	public void Seleccionar_estacion_guardada() {
+		// TODO Auto-generated method stub
+		if (guardar==false)
+		{
+			int bot= getBoton();
+			float est= botones[bot];
+			setEstacion(est);
+		}
+	}
+	@Override
+	public void Guardar_seleccion() {
+		// TODO Auto-generated method stub
+		if (guardar== true)
+		{
+			guardar= false;
+		}
+		else
+		{
+			guardar= true;
+		}
 	}
 }

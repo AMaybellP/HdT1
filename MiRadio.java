@@ -55,26 +55,55 @@ public class MiRadio implements Radio
 	public float avanzar()
 	{
 		if (frecuencia.equals("AM"))
-		{
-			if(estacion<1610)
+		{	
+			if(adelante == true)
 			{
-				estacion= estacion+10;
+				if(estacion<1610)
+				{
+					estacion= estacion+10;
+				}
+				else
+				{
+					estacion=530;
+				}
 			}
 			else
 			{
-				estacion=530;
+				if (estacion>530)
+				{
+					estacion = estacion-10;
+				}
+				else
+				{
+					estacion=1610; 
+				}
 			}
+			
 		}
 		if(frecuencia.equals("FM"))
 		{
-			if(estacion<107.9)
-			{
-				estacion= estacion+0.2f;
-			}
-			else
-			{
-				estacion=87.9f;
-			}
+				if (adelante == true)
+				{
+					if(estacion<107.9)
+					{
+						estacion= estacion+0.2f;
+					}
+					else
+					{
+						estacion=87.9f;
+					}
+				}
+				else
+				{
+					if (estacion>87.9)
+					{
+						estacion = estacion-0.2;
+					}
+					else
+					{
+						estacion = 107.9
+					}
+				}
 		}
 		return estacion;
 	}

@@ -2,23 +2,23 @@
 public class MiRadio implements Radio
 {
 	/***atributos***/
-	private boolean encendido;
+	private boolean estado;
 	private float [] botones= new float[12];
 	private String frecuencia;
 	/*private*/ float estacion;
 	
-	/***métodos***/
+	/***mÃ©todos***/
 	//constructor
 	public MiRadio()
 	{
-		encendido= false;
+		estado= false;
 	}
 	//sets y gets
-	public boolean getEncendido() {
-		return encendido;
+	public boolean getEstado() {
+		return estado;
 	}
-	public void setEncendido(boolean encendido) {
-		this.encendido = encendido;
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	public float[] getBotones() {
 		return botones;
@@ -41,11 +41,11 @@ public class MiRadio implements Radio
 	//otros
 	public void encender()
 	{
-		setEncendido(true);
+		setEstado(true);
 	}
 	public void apagar()
 	{
-		setEncendido(false);
+		setEstado(false);
 	}
 	public void cambiar(String frec)
 	{

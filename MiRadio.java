@@ -6,6 +6,7 @@ public class MiRadio implements Radio
 	private float [] botones= new float[12];
 	private String frecuencia;
 	/*private*/ float estacion;
+	private boolean adelante
 	
 	/***métodos***/
 	//constructor
@@ -37,6 +38,10 @@ public class MiRadio implements Radio
 	}
 	public void setEstacion(float estacion) {
 		this.estacion = estacion;
+	}
+	public boolean getAdelante(){
+		return adelante
+	}
 	}
 	//otros
 	public void encender()

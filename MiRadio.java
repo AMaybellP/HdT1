@@ -1,4 +1,16 @@
+// Universidad del Valle de Guatemala
+// Algoritmos y Estructura de datos
+// Hoja de trabajo # 1
+// Seccion 10
+// 12/07/16
 
+//Integrantes
+// Andrea Maybell Echeverria 15127
+// Jose Gerardo Molina 14492
+// Diego Lopez 141222
+
+
+//Clase radio que implementa la interfaz
 public class MiRadio implements Radio
 {
 	/***atributos***/
@@ -46,10 +58,12 @@ public class MiRadio implements Radio
 	public void setBoton(int boton) {
 		this.boton = boton;
 	}
-	//otros
+	
+	//Se implementan los métodos de la interfaz
 	@Override
 	public void ON_OFF() {
 		// TODO Auto-generated method stub
+		// Se verifica si el radio está encendido o apagado
 		boolean en= getEncendido(); 
 		if (en==true)
 		{
@@ -62,6 +76,7 @@ public class MiRadio implements Radio
 	}
 	@Override
 	public void AM_FM() {
+		// Se verifica si el radio está en AM o FM
 		if (encendido==true)
 		{
 			// TODO Auto-generated method stub
@@ -77,6 +92,7 @@ public class MiRadio implements Radio
 		
 	}
 	@Override
+	//@param a       boolean para poder colocar una emisora al comenzar el radio
 	public void Cambio_de_Emisora(boolean a) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -158,6 +174,7 @@ public class MiRadio implements Radio
 		//return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
+	//@param bot       integer para poder guardar una emisora en los botones
 	public void Guardar_Emisora(int bot) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -168,6 +185,7 @@ public class MiRadio implements Radio
 		}}
 	}
 	@Override
+	//@param bot      integer para poder seleccionar la emisora guardada
 	public void Seleccionar_emisora_guardada(int bot) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -180,6 +198,7 @@ public class MiRadio implements Radio
 	}
 	@Override
 	public void Guardar_seleccion() {
+		//Permite guardar la emisora seleccionada 
 		if (encendido==true){
 		// TODO Auto-generated method stub
 		if (guardar== true)

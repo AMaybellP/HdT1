@@ -49,6 +49,13 @@ public class GUIradio extends JFrame {
 		gs= o;
 	}
 
+	public void botoncitos(int x, JLabel l)
+	{
+		radio.Guardar_Emisora(x);
+		radio.Seleccionar_emisora_guardada(x);
+		l.setText(String.valueOf(radio.getEmisora()));
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -75,6 +82,7 @@ public class GUIradio extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+
 		
 		JButton btnOn = new JButton("ON/OFF");
 		btnOn.addActionListener(new ActionListener() {
@@ -100,17 +108,24 @@ public class GUIradio extends JFrame {
 		lblJaja.setForeground(Color.BLACK);
 		lblJaja.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblJaja.setBackground(Color.WHITE);
-		lblJaja.setBounds(157, 95, 92, 23);
+		lblJaja.setBounds(182, 95, 55, 23);
 		contentPane.add(lblJaja);
 		
 		JButton button = new JButton("<<<");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				radio.Cambio_de_Emisora(false);
+				lblJaja.setText(String.valueOf(radio.getEmisora()));;
+			}
+		});
 		button.setBounds(78, 95, 57, 23);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton(">>>");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lblJaja.setText(String.valueOf(radio.Cambio_de_Estacion()));;
+				radio.Cambio_de_Emisora(true);
+				lblJaja.setText(String.valueOf(radio.getEmisora()));;
 			}
 		});
 		button_1.setBounds(270, 95, 57, 23);
@@ -119,9 +134,7 @@ public class GUIradio extends JFrame {
 		JButton button_2 = new JButton("1");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(1);
-				radio.Seleccionar_estacion_guardada(1);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(1)));
+				botoncitos(1,lblJaja);
 			}
 		});
 		button_2.setBounds(21, 174, 57, 23);
@@ -130,9 +143,7 @@ public class GUIradio extends JFrame {
 		JButton button_3 = new JButton("2");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(2);
-				radio.Seleccionar_estacion_guardada(2);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(2)));
+				botoncitos(2,lblJaja);
 			}
 		});
 		button_3.setBounds(88, 174, 57, 23);
@@ -141,9 +152,7 @@ public class GUIradio extends JFrame {
 		JButton button_4 = new JButton("3");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(3);
-				radio.Seleccionar_estacion_guardada(3);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(3)));
+				botoncitos(3,lblJaja);
 			}
 		});
 		button_4.setBounds(155, 174, 57, 23);
@@ -152,9 +161,7 @@ public class GUIradio extends JFrame {
 		JButton button_5 = new JButton("4");
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(4);
-				radio.Seleccionar_estacion_guardada(4);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(4)));
+				botoncitos(4,lblJaja);
 			}
 		});
 		button_5.setBounds(222, 174, 57, 23);
@@ -163,9 +170,7 @@ public class GUIradio extends JFrame {
 		JButton button_6 = new JButton("5");
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(5);
-				radio.Seleccionar_estacion_guardada(5);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(5)));
+				botoncitos(5,lblJaja);
 			}
 		});
 		button_6.setBounds(289, 174, 57, 23);
@@ -174,9 +179,7 @@ public class GUIradio extends JFrame {
 		JButton button_7 = new JButton("6");
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(6);
-				radio.Seleccionar_estacion_guardada(6);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(6)));
+				botoncitos(6,lblJaja);
 			}
 		});
 		button_7.setBounds(356, 174, 57, 23);
@@ -185,9 +188,7 @@ public class GUIradio extends JFrame {
 		JButton button_8 = new JButton("7");
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(7);
-				radio.Seleccionar_estacion_guardada(7);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(7)));
+				botoncitos(7,lblJaja);
 			}
 		});
 		button_8.setBounds(21, 210, 57, 23);
@@ -196,9 +197,7 @@ public class GUIradio extends JFrame {
 		JButton button_9 = new JButton("8");
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(8);
-				radio.Seleccionar_estacion_guardada(8);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(8)));
+				botoncitos(8,lblJaja);
 			}
 		});
 		button_9.setBounds(88, 210, 57, 23);
@@ -207,9 +206,7 @@ public class GUIradio extends JFrame {
 		JButton button_10 = new JButton("9");
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(9);
-				radio.Seleccionar_estacion_guardada(9);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(9)));
+				botoncitos(9,lblJaja);
 			}
 		});
 		button_10.setBounds(155, 210, 57, 23);
@@ -218,9 +215,7 @@ public class GUIradio extends JFrame {
 		JButton button_11 = new JButton("10");
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(10);
-				radio.Seleccionar_estacion_guardada(10);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(10)));
+				botoncitos(10,lblJaja);
 			}
 		});
 		button_11.setBounds(222, 210, 57, 23);
@@ -229,9 +224,7 @@ public class GUIradio extends JFrame {
 		JButton button_12 = new JButton("11");
 		button_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(11);
-				radio.Seleccionar_estacion_guardada(11);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(11)));
+				botoncitos(11,lblJaja);
 			}
 		});
 		button_12.setBounds(289, 210, 57, 23);
@@ -240,9 +233,7 @@ public class GUIradio extends JFrame {
 		JButton button_13 = new JButton("12");
 		button_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				radio.Guardar_Estacion(12);
-				radio.Seleccionar_estacion_guardada(12);
-				lblJaja.setText(String.valueOf(radio.Seleccionar_estacion_guardada(12)));
+				botoncitos(12,lblJaja);
 			}
 		});
 		button_13.setBounds(356, 210, 57, 23);

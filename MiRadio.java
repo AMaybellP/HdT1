@@ -1,21 +1,30 @@
-
+/**
+ * * Clase publica MiRadio, implementa a la interfaz Radio. 
+ */
 public class MiRadio implements Radio
 {
-	/***atributos***/
+/**
+ * Atributos de la clase MiRadio
+ */
+ 
 	private boolean encendido = false;
 	private boolean guardar = true;
 	private double [] botones= new double[12];
 	private boolean frecuencia = true;
 	private double estacion=530;
 	private int boton;
-	
-	/***métodos***/
-	//constructor
+/**
+ * Metodos de la clase MiRadio
+ * 
+ * Metodo constructor.
+ */
 	public MiRadio()
 	{
 		encendido= false;
 	}
-	//sets y gets
+/**
+ * Metodos Sets y Gets.
+ */
 	public boolean getEncendido() {
 		return encendido;
 	}
@@ -46,7 +55,10 @@ public class MiRadio implements Radio
 	public void setBoton(int boton) {
 		this.boton = boton;
 	}
-	//otros
+	
+/**
+ * Metodo ON_OFF, true si esta encendido y false si no lo esta.
+ */
 	@Override
 	public void ON_OFF() {
 		// TODO Auto-generated method stub
@@ -60,6 +72,9 @@ public class MiRadio implements Radio
 			setEncendido(true);
 		}	
 	}
+/**
+ * Metodo AM_FM 
+ */
 	@Override
 	public void AM_FM() {
 		if (encendido==true)
@@ -77,6 +92,9 @@ public class MiRadio implements Radio
 		
 	}
 	@Override
+/**
+ * Metodo Cambio_de_Emisora para definir la emisora dependiendo si esta es am o fm.
+ */
 	public void Cambio_de_Emisora(boolean a) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -158,6 +176,9 @@ public class MiRadio implements Radio
 		//return (Math.round(estacion*1000f))/1000f;
 	}
 	@Override
+/**
+ * Metodo Guardar_Emisora se guarda la emisora.
+ */
 	public void Guardar_Emisora(int bot) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -168,6 +189,10 @@ public class MiRadio implements Radio
 		}}
 	}
 	@Override
+/**
+ * Metodo Seleccionar_emisora_guardada se selecciona una emisora guardada.
+ */
+
 	public void Seleccionar_emisora_guardada(int bot) {
 		if (encendido==true){
 		// TODO Auto-generated method stub
@@ -178,6 +203,9 @@ public class MiRadio implements Radio
 		}}
 		//return (Math.round(estacion*1000f))/1000f;
 	}
+/**
+ * Metodo Guardar_Seleccion
+ */
 	@Override
 	public void Guardar_seleccion() {
 		if (encendido==true){

@@ -14,12 +14,12 @@
 public class MiRadio implements Radio
 {
 	/***atributos***/
-	private boolean encendido = false;
-	private boolean guardar = true;
-	private double [] botones= new double[12];
-	private boolean frecuencia = true;
-	private double estacion=530;
-	private int boton;
+	private boolean encendido = false; //Determina el estado del radio
+	private boolean guardar = true; //Determina si se quiere guardar una estación
+	private double [] botones= new double[12]; //Lista de botones donde se pueden colocar distintas estaciones
+	private boolean frecuencia = true; //Determina si está en la frecuencia AM o FM
+	private double estacion=530; //Valor de la estación que se encuentra el usuario
+	private int boton; //Variable que guarda el boton donde se guardó la estación 
 	
 	/***métodos***/
 	//constructor

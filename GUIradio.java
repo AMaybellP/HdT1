@@ -1,3 +1,19 @@
+// Universidad del Valle de Guatemala
+// Algoritmos y Estructura de datos
+// Hoja de trabajo # 1
+// Seccion 10
+// 12/07/16
+
+//Integrantes
+// Andrea Maybell Echeverria 15127
+// Jose Gerardo Molina 14492
+// Diego Lopez 141222
+
+
+
+
+
+//Se importa todos los componentes para poder crear la interfaz gráfica
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -15,7 +31,7 @@ import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 
 public class GUIradio extends JFrame {
-
+	//Atributos 
 	private JPanel contentPane;
 	private Radio radio= new MiRadio();
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -23,6 +39,7 @@ public class GUIradio extends JFrame {
 	private boolean am= true;
 	private boolean gs=false;
 	
+	//Sets y gets
 	public boolean getOn()
 	{
 		return on;
@@ -75,6 +92,7 @@ public class GUIradio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	 //Se crean todos los botones y elementos necesarios para crear una interfaz facil de usar para el usuario
 	public GUIradio() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 301);

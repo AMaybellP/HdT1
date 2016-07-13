@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
@@ -38,6 +39,8 @@ public class GUIradio extends JFrame {
 	private boolean on= false;
 	private boolean am= true;
 	private boolean gs=false;
+	
+	DecimalFormat df= new DecimalFormat("#.##");
 	
 	//Sets y gets
 	public boolean getOn()
@@ -70,7 +73,7 @@ public class GUIradio extends JFrame {
 	{
 		radio.Guardar_Emisora(x);
 		radio.Seleccionar_emisora_guardada(x);
-		l.setText(String.valueOf(radio.getEmisora()));
+		l.setText(df.format(radio.getEmisora()));
 	}
 
 	/**
@@ -133,7 +136,7 @@ public class GUIradio extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				radio.Cambio_de_Emisora(false);
-				lblJaja.setText(String.valueOf(radio.getEmisora()));;
+				lblJaja.setText(df.format(radio.getEmisora()));;
 			}
 		});
 		button.setBounds(78, 95, 57, 23);
@@ -143,7 +146,7 @@ public class GUIradio extends JFrame {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				radio.Cambio_de_Emisora(true);
-				lblJaja.setText(String.valueOf(radio.getEmisora()));;
+				lblJaja.setText(df.format(radio.getEmisora()));;
 			}
 		});
 		button_1.setBounds(270, 95, 57, 23);
